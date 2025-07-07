@@ -10,6 +10,7 @@ class AdController extends Controller
 {
     public function store(Request $request)
     {
+        
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
@@ -21,14 +22,14 @@ class AdController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect('/en/dashboard');
+        return redirect()->route('dashboard');
     }
 
     public function index()
     {
         $ads = Ad::with('user')->latest()->get();
 
-        return view('en.dashboard', compact('ads'));
+        return view('dashboard', compact('ads'));
     }
 
     public function destroy($id)
@@ -41,7 +42,7 @@ class AdController extends Controller
 
     $ad->delete();
 
-    return redirect()->route('en.dashboard')->with('success', 'Ad deleted successfully.');
+    return redirect()->route('dashboard')->with('success', 'Ad deleted successfully.');
 }
 
 }

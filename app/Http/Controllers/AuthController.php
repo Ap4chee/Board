@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function showRegisterForm(){
-        return view("en.register");
+        return view("register");
     }
 
     public function register(Request $request){
@@ -33,11 +33,11 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('en/dashboard');
+        return redirect('dashboard');
     }
 
     public function showLoginForm(){
-        return view("en.login");
+        return view("login");
     }
 
     public function login(Request $request){
@@ -50,7 +50,7 @@ class AuthController extends Controller
         $creds = $request->only('email', 'password');
 
         if(Auth::attempt($creds)){
-            return redirect('en/dashboard');
+            return redirect('dashboard');
         }
 
         return back()->withErrors([
@@ -61,6 +61,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->forget('is_admin');
 
-        return redirect('en/login');
+        return redirect('login');
     }
 }

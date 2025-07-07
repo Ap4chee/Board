@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('en.contact');
+        return view('contact');
     }
 
     public function send(Request $request)
