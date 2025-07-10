@@ -22,7 +22,7 @@ Follow these steps to get the project up and running on your local machine:
 1.  **Clone the Repository:**
     Open your terminal or command prompt and run:
     ```bash
-    git clone [https://github.com/Ap4chee/Board.git](https://github.com/Ap4chee/Board.git)
+    git clone https://github.com/Ap4chee/Board.git
     cd Board
     ```
 
